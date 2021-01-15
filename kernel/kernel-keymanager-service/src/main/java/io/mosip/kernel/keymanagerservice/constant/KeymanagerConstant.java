@@ -160,4 +160,6 @@ public class KeymanagerConstant {
 	 * The constant KeyStore PrivateKey NotAvailable
 	 */
 	public static final String KS_PK_NA = "NA";
+
+	public static final String ROOT = "ROOT";
 }

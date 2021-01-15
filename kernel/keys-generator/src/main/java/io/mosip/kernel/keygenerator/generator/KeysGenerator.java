@@ -32,7 +32,7 @@ public class KeysGenerator {
 
     private static final String BLANK_REF_ID = "";
 
-    private static final String MOSIP_CN = "MOSIP-";
+    //private static final String MOSIP_CN = "MOSIP-";
 
     private static final String DUMMY_RESP_TYPE = "CSR";
 
@@ -41,6 +41,12 @@ public class KeysGenerator {
     @Value("${mosip.kernel.keymanager.autogen.appids.list}")
     private String appIdsList;
 
+    /**
+	 * Common Name for generating certificate
+	 */
+	@Value("${mosip.kernel.keymanager.certificate.default.common-name}")
+    private String rootCommonName;
+    
     /**
      * Organizational Unit for generating certificate
      */
@@ -99,7 +105,7 @@ public class KeysGenerator {
 
         String rootKeyAlias = getKeyAlias(ROOT_APP_ID, BLANK_REF_ID);
         if (Objects.isNull(rootKeyAlias)) {
-            generateMasterKey(ROOT_APP_ID, BLANK_REF_ID, MOSIP_CN + ROOT_APP_ID);
+            generateMasterKey(ROOT_APP_ID, BLANK_REF_ID, rootCommonName);
             System.out.println("Generated ROOT Key.");
         }
 
@@ -108,7 +114,7 @@ public class KeysGenerator {
             String[] strArr = appId.split(":", -1);
             String applicationId = strArr[0];
             String referenceId = BLANK_REF_ID;
-            String commonName = MOSIP_CN + applicationId.toUpperCase();
+            String commonName = rootCommonName; 
             if (strArr.length > 1) {
                 referenceId = strArr[1];
                 commonName = commonName + "-" + referenceId.toUpperCase();
@@ -190,7 +196,8 @@ public class KeysGenerator {
         requestDto.setReferenceId(refId);
         requestDto.setForce(false);
         requestDto.setCommonName(commonName);
-        requestDto.setOrganizationUnit(organizationUnit);
+        String componentName = appId.equalsIgnoreCase(ROOT_APP_ID) ? "" : " (" + appId.toUpperCase() + ")";
+        requestDto.setOrganizationUnit(organizationUnit + componentName);
         requestDto.setOrganization(organization);
         requestDto.setLocation(location);
         requestDto.setState(state);

@@ -25,7 +25,22 @@ public final class KeymanagerConstant {
 	public static final String SIGNATURE_ALGORITHM = "SHA256withRSA";
 
 
-	public static final String 	KEYSTORE_TYPE_PKCS11 = "PKCS11";
+	public static final String KEYSTORE_TYPE_PKCS11 = "PKCS11";
 
 	public static final String KEYSTORE_TYPE_PKCS12 = "PKCS12";
+
+	public static final String SYM_KEY_ALGORITHM = "SYM_KEY_ALGORITHM";
+
+	public static final String SYM_KEY_SIZE = "SYM_KEY_SIZE";
+
+	public static final String ASYM_KEY_ALGORITHM = "ASYM_KEY_ALGORITHM";
+
+	public static final String ASYM_KEY_SIZE = "ASYM_KEY_SIZE";
+
+	public static final String CERT_SIGN_ALGORITHM = "CERT_SIGN_ALGORITHM";
+
+	public static final String CONFIG_FILE_PATH = "CONFIG_FILE_PATH";
+
+	public static final String PKCS11_KEYSTORE_PASSWORD = "PKCS11_KEYSTORE_PASSWORD";
+
 }
