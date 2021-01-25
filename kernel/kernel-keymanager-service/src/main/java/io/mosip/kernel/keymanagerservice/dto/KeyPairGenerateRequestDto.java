@@ -26,7 +26,7 @@ public class KeyPairGenerateRequestDto {
 	/**
 	 * Application Id For Generating KeyPair
 	 */
-	@ApiModelProperty(notes = "Application ID", example = "KERNEL", required = true)
+	@ApiModelProperty(notes = "Application ID", example = "REGISTRATION", required = true)
 	@NotBlank(message = KeymanagerConstant.INVALID_REQUEST)
 	private String applicationId;
 	
@@ -45,7 +45,7 @@ public class KeyPairGenerateRequestDto {
 	/**
 	 * Common Name For Generating Certificate or CSR
 	 */
-	@ApiModelProperty(notes = "Common Name (CN)", example = "MOSIP", required = false)
+	@ApiModelProperty(notes = "Common Name (CN)", example = "", required = false)
 	private String commonName;
 
 	/**

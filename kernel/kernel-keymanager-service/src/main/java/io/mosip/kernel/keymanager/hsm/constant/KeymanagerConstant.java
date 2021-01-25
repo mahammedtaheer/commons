@@ -24,10 +24,13 @@ public final class KeymanagerConstant {
 	 */
 	public static final String SIGNATURE_ALGORITHM = "SHA256withRSA";
 
+	public static final String SUN_PKCS11_PROVIDER = "SunPKCS11";
 
 	public static final String KEYSTORE_TYPE_PKCS11 = "PKCS11";
 
 	public static final String KEYSTORE_TYPE_PKCS12 = "PKCS12";
+
+	public static final String KEYSTORE_TYPE_OFFLINE = "OFFLINE";
 
 	public static final String SYM_KEY_ALGORITHM = "SYM_KEY_ALGORITHM";
 
@@ -42,5 +45,15 @@ public final class KeymanagerConstant {
 	public static final String CONFIG_FILE_PATH = "CONFIG_FILE_PATH";
 
 	public static final String PKCS11_KEYSTORE_PASSWORD = "PKCS11_KEYSTORE_PASSWORD";
+
+	public static final String PKCS11_KS_IMPL_CLAZZ = "io.mosip.kernel.keymanager.hsm.impl.pkcs.PKCS11KeyStoreImpl";
+
+	public static final String PKCS12_KS_IMPL_CLAZZ = "io.mosip.kernel.keymanager.hsm.impl.pkcs.PKCS12KeyStoreImpl";
+
+	public static final String OFFLINE_KS_IMPL_CLAZZ = "io.mosip.kernel.keymanager.hsm.impl.offline.OLKeyStoreImpl";
+
+	public static final String JCE_CLAZZ_NAME = "className";
+
+	public static final String FLAG_KEY_REF_CACHE = "FLAG_KEY_REF_CACHE";
 
 }
